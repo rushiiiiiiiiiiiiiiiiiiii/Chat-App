@@ -13,8 +13,10 @@ const Home = () => {
   useEffect(() => {
     axios
       .get('https://chat-app-server-lvyn.onrender.com/getuser/' + id)
+      // .get('http://localhost:3001/getuser/' + id)
       .then((res) => {
         setUser(res.data);
+        console.log(res.data)
       })
       .catch((err) => console.log(err));
   }, [id]);
@@ -22,8 +24,11 @@ const Home = () => {
   useEffect(() => {
     axios
       .get('https://chat-app-server-lvyn.onrender.com/getuserone/' + id)
+      // .get('http://localhost:3001/getuserone/' + id)
       .then((res) => {
         setUserone(res.data);
+        console.log(res.data)
+
       })
       .catch((err) => console.log(err));
   }, [id]);
@@ -36,12 +41,13 @@ const Home = () => {
   return (
     <div className="h-screen w-full bg-gray-100 flex flex-col md:flex-row">
       {/* Sidebar */}
-      <div className="w-full md:w-1/4 bg-white border-r border-gray-200">
+      <div className="w-full md:w-1/4 h-[100vh] bg-white border-r border-gray-200">
         <div className="p-4 flex justify-between border-b border-gray-200">
           <h1 className="text-2xl font-bold text-green-500">WhatsApp</h1>
           <img
             className="w-12 h-12 rounded-full flex-shrink-0"
             src={`https://chat-app-server-lvyn.onrender.com/${userone?.image}`}
+            // src={`http://localhost:3001/${userone?.image}`}
             alt="User"
           />
         </div>
@@ -64,6 +70,7 @@ const Home = () => {
                 <img
                   className="w-12 h-12 rounded-full flex-shrink-0"
                   src={`https://chat-app-server-lvyn.onrender.com/${data.image}`}
+                  // src={`http://localhost:3001/${data.image}`}
                   alt="User"
                 />
                 <div className="ml-4">

@@ -10,6 +10,7 @@ const Login = () => {
     const log = async (e)=>{
         e.preventDefault()
         await axios.post('https://chat-app-server-lvyn.onrender.com/log',{phone,password})
+        // await axios.post('http://localhost:3001/log',{phone,password})
         .then(res=>{
             console.log(res.data)
             sessionStorage.setItem("userid", res.data._id)

@@ -19,6 +19,7 @@ const Register = () => {
       formdata.append('password', password)
       
       await axios.post("https://chat-app-server-lvyn.onrender.com/reg", formdata)
+      // await axios.post("http://localhost:3001/reg", formdata)
       .then(res=>{
         console.log(res.data)
         navigate('/')

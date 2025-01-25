@@ -11,6 +11,7 @@ const server = http.createServer(app);  // Create server
 const io = socketIo(server, {
   cors: {
     origin: "https://majestic-taffy-18b35d.netlify.app",  // Allow your front-end origin
+   //  origin: "http://localhost:5173",  // Allow your front-end origin
     methods: ["GET", "POST"],  // Allow these HTTP methods
     allowedHeaders: ["Content-Type"],  // Allow the Content-Type header
   }
@@ -20,14 +21,16 @@ app.use(express.static('images'));
 app.use(express.json());
 app.use(cors({
    origin: 'https://majestic-taffy-18b35d.netlify.app',
+   // origin: 'http://localhost:5173',
    methods: ['POST', 'GET', 'DELETE'],
 }));
 
-// Mongo connection 
 const RegModel = require('./Schemas/Register');
 const chatModel = require('./Schemas/Message');
+
+// Mongo connection 
 // mongoose.connect('mongodb+srv://rushikesharote14:oqai74leLp6fpD5b@cluster0.e0v7z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-mongoose.connect('mongodb+srv://rushikesharote14:oqai74leLp6fpD5b@cluster0.e0v7z.mongodb.net/?retryWrites=true&w=majority&appName=chat-app')
+mongoose.connect('mongodb+srv://rushikesharote14:oqai74leLp6fpD5b@cluster0.e0v7z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
    .then(() => console.log("mongodb connected"))
    .catch(err => console.log("failed to connect", err));
 
@@ -52,9 +55,11 @@ app.post('/reg', upload.single('image'), (req, res) => {
      .then(regchat => res.json(regchat))
      .catch(err => res.json(err))
 })
+
 app.get('/', (req,res)=>{
   res.json('Hii')
 })
+
 //Login route
 app.post('/log', (req, res) => {
   const { phone, password } = req.body
@@ -85,8 +90,6 @@ app.get('/getuserdet/:id', (req, res) => {
      .catch(err => res.json(err))
 })
 
-
-
 app.post('/chat', (req, res) => {
    const { id, sid, message } = req.body;
    chatModel.create({ id, sid, message })
@@ -96,8 +99,6 @@ app.post('/chat', (req, res) => {
       })
       .catch((err) => res.json(err));
 });
-
-
 
 app.get('/getchat', (req, res) => {
    const { id, sid } = req.query;
@@ -125,6 +126,18 @@ io.on('connection', (socket) => {
 server.listen(3001, () => {
    console.log("Server running on port 3001");
 });
+
+
+
+
+
+
+
+
+
+
+
+
 // const express = require('express')
 // const mongoose = require('mongoose')
 // const cors = require('cors')
