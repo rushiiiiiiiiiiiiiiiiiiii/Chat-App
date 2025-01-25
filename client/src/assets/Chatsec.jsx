@@ -69,7 +69,11 @@ const Chatsec = () => {
             src={`https://chat-app-server-lvyn.onrender.com/${user.image}`}
             alt="User"
           />
+          <div>
           <h2 className="text-lg font-semibold">{user.name}</h2>
+          {sessionStorage.getItem("userid")?<p className="text-sm font-semibold text-white">Online</p>:
+          <p className="text-sm font-semibold text-red-500">Offline</p>}
+          </div>
         </div>
         <div className="flex gap-2">
           <button className="p-2 rounded-full bg-green-500 hover:bg-green-700">
