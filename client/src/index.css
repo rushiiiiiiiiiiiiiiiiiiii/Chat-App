@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hide the scrollbar in most modern browsers */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* For Firefox */
+  .scrollbar-hidden {
+    scrollbar-width: none;  /* Hide scrollbar in Firefox */
+  }
+  
