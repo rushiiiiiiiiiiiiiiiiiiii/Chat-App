@@ -26,8 +26,8 @@ app.use(cors({
 // Mongo connection 
 const RegModel = require('./Schemas/Register');
 const chatModel = require('./Schemas/Message');
-
-mongoose.connect('mongodb://localhost:27017/whatsapp')
+// mongoose.connect('mongodb+srv://rushikesharote14:oqai74leLp6fpD5b@cluster0.e0v7z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb+srv://rushikesharote14:oqai74leLp6fpD5b@cluster0.e0v7z.mongodb.net/?retryWrites=true&w=majority&appName=chat-app')
    .then(() => console.log("mongodb connected"))
    .catch(err => console.log("failed to connect", err));
 
@@ -52,7 +52,9 @@ app.post('/reg', upload.single('image'), (req, res) => {
      .then(regchat => res.json(regchat))
      .catch(err => res.json(err))
 })
-
+app.get('/', (req,res)=>{
+  res.json('Hii')
+})
 //Login route
 app.post('/log', (req, res) => {
   const { phone, password } = req.body
