@@ -10,8 +10,8 @@ const socketIo = require('socket.io');  // Import Socket.io
 const server = http.createServer(app);  // Create server
 const io = socketIo(server, {
   cors: {
-   //  origin: "https://majestic-taffy-18b35d.netlify.app",  // Allow your front-end origin
-    origin: "http://localhost:5173",  // Allow your front-end origin
+    origin: "https://majestic-taffy-18b35d.netlify.app",  // Allow your front-end origin
+   //  origin: "http://localhost:5173",  // Allow your front-end origin
     methods: ["GET", "POST"],  // Allow these HTTP methods
     allowedHeaders: ["Content-Type"],  // Allow the Content-Type header
   }
@@ -20,8 +20,8 @@ const io = socketIo(server, {
 app.use(express.static('images'));
 app.use(express.json());
 app.use(cors({
-   // origin: 'https://majestic-taffy-18b35d.netlify.app',
-   origin: 'http://localhost:5173',
+   origin: 'https://majestic-taffy-18b35d.netlify.app',
+   // origin: 'http://localhost:5173',
    methods: ['POST', 'GET', 'DELETE'],
 }));
 
