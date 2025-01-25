@@ -15,7 +15,7 @@ const Chatsec = () => {
 
   // Create socket connection on component mount
   useEffect(() => {
-    const socket = io('http://localhost:3001');  // Connect to the server
+    const socket = io('https://chat-app-server-lvyn.onrender.com');  // Connect to the server
 
     // Listen for new messages
     socket.on('newMessage', (data) => {
@@ -28,7 +28,7 @@ const Chatsec = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/getuserdet/${id}`)
+      .get(`https://chat-app-server-lvyn.onrender.com/getuserdet/${id}`)
       .then((res) => {
         setUser(res.data);
       })
@@ -37,7 +37,7 @@ const Chatsec = () => {
 
   const fetch = () => {
     axios
-      .get(`http://localhost:3001/getchat?id=${id}&sid=${sid}`)
+      .get(`https://chat-app-server-lvyn.onrender.com/getchat?id=${id}&sid=${sid}`)
       .then((res) => {
         setChat(res.data);
       })
@@ -51,7 +51,7 @@ const Chatsec = () => {
   const send = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:3001/chat', { id, sid, message })
+      .post('https://chat-app-server-lvyn.onrender.com/chat', { id, sid, message })
       .then(() => {
         setMessage('');
         fetch();
@@ -73,7 +73,7 @@ const Chatsec = () => {
         <div className="flex items-center gap-4">
           <img
             className="w-12 h-12 rounded-full"
-            src={`http://localhost:3001/${user.image}`}
+            src={`https://chat-app-server-lvyn.onrender.com/${user.image}`}
             alt="User"
           />
           <h2 className="text-lg font-bold">{user.name}</h2>

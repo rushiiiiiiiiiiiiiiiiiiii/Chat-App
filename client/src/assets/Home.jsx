@@ -12,7 +12,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/getuser/' + id)
+      .get('https://chat-app-server-lvyn.onrender.com/getuser/' + id)
       .then((res) => {
         setUser(res.data);
       })
@@ -21,7 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:3001/getuserone/' + id)
+      .get('https://chat-app-server-lvyn.onrender.com/getuserone/' + id)
       .then((res) => {
         setUserone(res.data);
       })
@@ -41,7 +41,7 @@ const Home = () => {
           <h1 className="text-2xl font-bold text-green-500">WhatsApp</h1>
           <img
             className="w-12 h-12 rounded-full flex-shrink-0"
-            src={`http://localhost:3001/${userone?.image}`}
+            src={`https://chat-app-server-lvyn.onrender.com/${userone?.image}`}
             alt="User"
           />
         </div>
@@ -63,7 +63,7 @@ const Home = () => {
               >
                 <img
                   className="w-12 h-12 rounded-full flex-shrink-0"
-                  src={`http://localhost:3001/${data.image}`}
+                  src={`https://chat-app-server-lvyn.onrender.com/${data.image}`}
                   alt="User"
                 />
                 <div className="ml-4">
