@@ -1,7 +1,6 @@
 import './App.css'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './assets/Home'
-import Chat from './assets/Chat'
 import Register from './login/Register'
 import Login from './login/Login'
 import Chatsec from './assets/Chatsec'
