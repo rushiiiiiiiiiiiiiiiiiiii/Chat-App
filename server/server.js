@@ -56,9 +56,9 @@ app.post('/reg', upload.single('image'), (req, res) => {
      .catch(err => res.json(err))
 })
 
-app.get('/', (req,res)=>{
-  res.json('Hii')
-})
+// app.get('/', (req,res)=>{
+//   res.json('Hii')
+// })
 
 //Login route
 app.post('/log', (req, res) => {
